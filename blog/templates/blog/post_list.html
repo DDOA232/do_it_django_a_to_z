@@ -62,8 +62,12 @@
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-6">
-                    <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-sharp fa-solid fa-bomb"></i>&nbsp&nbsp Log in with Google</button>
-                    <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-sharp fa-solid fa-clipboard"></i>&nbsp&nbspLog in with E-mail</button>
+                    <button type="button" class="btn btn-outline-dark btn-block btn-sm">
+                      <i class="fa-sharp fa-solid fa-bomb"></i>
+                      &nbsp&nbsp Log in with Google</button>
+                    <button type="button" class="btn btn-outline-dark btn-block btn-sm">
+                      <i class="fa-sharp fa-solid fa-clipboard"></i>
+                      &nbsp&nbspLog in with E-mail</button>
                 </div>
             <div class="col-md-6">
                 <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-sharp fa-solid fa-mug-hot"></i>&nbsp&nbspSign Up with E-mail</button>
@@ -92,7 +96,10 @@
                                 {% endif %}
                                 <div class="card-body">
                                     <h2 class="card-title">{{ p.title }}</h2>
-                                    <p class="card-text">{{ p.content }}</p>
+                                    {% if p.hook_text %}
+                                      <h5 class="text-muted">{{p.hook_text}}</h5>
+                                    {% endif %}
+                                    <p class="card-text">{{ p.content | truncatewords:5}}</p>
                                     <a class="btn btn-primary" href={{ p.get_absoulte_url }}>Read More &rarr;</a>
                                 </div>
                                 <div class = "card-footer text-muted">
