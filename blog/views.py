@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView ## 여러 포스트 목록 페이지를 만들기 위해 ListView 가져오기
+# from django.shortcuts import render
+from django.views.generic import ListView, DetailView ## 여러 포스트 목록 페이지를 만들기 위해 ListView 가져오기
 from .models import Post
 
 
@@ -27,16 +27,19 @@ class PostList(ListView):
 #        }
 #    )
 
-def single_post_page(request, pk):
-    post = Post.objects.get(pk=pk)
+class PostDetail(DetailView):
+    model = Post
 
-    return render(
-        request,
+# def single_post_page(request, pk):
+#    post = Post.objects.get(pk=pk)
 
-        'blog/single_post_page.html',
-        {
-            'post' : post,
-        }
-    )
+#    return render(
+#        request,
+#
+#        'blog/single_post_page.html',
+#        {
+#            'post' : post,
+#        }
+#    )
 
 # Create your views here.
