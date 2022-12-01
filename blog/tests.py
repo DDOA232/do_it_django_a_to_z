@@ -1,7 +1,7 @@
 from django.test import TestCase, client
-
 from bs4 import BeautifulSoup
 from .models import Post
+
 
 
 # Create your tests here.
@@ -9,6 +9,11 @@ from .models import Post
 class TestView(TestCase):
     def setUp(self):
         self.client = client()
+    
+    def navbar_test(self, soup):
+        navbar = soup.nav
+        self.asssertIn('Blog', navbar.text)
+        self.asseertIn('About Me', navbar.text)
 
     def test_post_list(self):
         # 1.1 포스트 목록 페이지를 가져온다.
@@ -20,6 +25,7 @@ class TestView(TestCase):
         # 1.3 페이지 타이틀은 'Blog'이다.
         soup = BeautifulSoup(response.content, 'html.parser')
         self.assertEqual(soup.title.text, 'Blog')
+        self.navbar_test(soup)
 
         # 1.4 내비게이션 바가 있다.
         navbar = soup.nav
