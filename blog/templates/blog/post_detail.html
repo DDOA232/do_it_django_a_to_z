@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+{% extends 'blog/base.html' %}
 {% load static %}
+
 <html lang="ko">
     <head>
         <meta charset="utf-8" />
@@ -35,10 +37,17 @@
                 <div class="col-lg-8">
                     <!-- Post content-->
                     <article>
+                    {% block head_title %}
+                        {{ post.title }} -Blog
+                    {% endblock %}
+
+                    {% block main_area %}
+                    <div id="post-area">
                         <!-- Post header-->
                         <header class="mb-4">
+
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
+                            <h1 class="mt-4">{{ post.title }}</h1>
                             <h5 class="text-muted">{{post.hook_text}}</h5>
                             <!--Author-->
                             <p class = "lead">
@@ -85,6 +94,8 @@
                         {%endif%}
                         <hr>
                     </article>
+                    </div>
+                    <div id="comment-area">
                     <!-- Comments section-->
                     <section class="mb-5">
                         <div class="card bg-light">
@@ -123,9 +134,13 @@
                                         <div class="fw-bold">Commenter Name</div>
                                         When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
+                    </div>
+                        {% endblock %}
                     </section>
                 </div>
                 <!-- Side widgets-->
