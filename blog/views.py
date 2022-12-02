@@ -1,7 +1,20 @@
 # from django.shortcuts import render
-from django.views.generic import ListView, DetailView ## 여러 포스트 목록 페이지를 만들기 위해 ListView 가져오기
+from django.views.generic import ListView, DetailView, CreateView ## 여러 포스트 목록 페이지를 만들기 위해 ListView 가져오기
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Category
+from django.shortcuts import render, redirect
 
+class PostCreate(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+
+    def form_valid(self, form):
+        current_user = self.request.user
+        if current_user.is_authenticated:
+            form.instance.author = current_user
+            return super(PostCreate, self).form_valid(form)
+        else:
+            return redirect('/blog/')
 
 # 여러 포스트 목록 페이지를 만들때 사용할 수 있는 기능
 class PostList(ListView):
@@ -58,3 +71,17 @@ class PostDetail(DetailView):
 #    )
 
 # Create your views here.
+
+def category_page(request, slug):
+    category = Category.objects.get(slug =slug)
+
+    return render(
+        request,
+        'blog/post_list.html',
+        {
+            'post_list' : Post.objects.filter(category=category),
+            'categories' : Category.objects.all(),
+            'no_category_post_count' : Post.objects.filter(category=None).count(),
+            'category' : category,
+        }
+    )
