@@ -13,45 +13,12 @@
 
     {% include 'blog/navbar.html' %}
 
-  <!-- Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="logInModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <button type="button" class="btn btn-outline-dark btn-block btn-sm">
-                      <i class="fa-sharp fa-solid fa-bomb"></i>
-                      &nbsp&nbsp Log in with Google</button>
-                    <button type="button" class="btn btn-outline-dark btn-block btn-sm">
-                      <i class="fa-sharp fa-solid fa-clipboard"></i>
-                      &nbsp&nbspLog in with E-mail</button>
-                </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-sharp fa-solid fa-mug-hot"></i>&nbsp&nbspSign Up with E-mail</button>
 
-            </div>
-        </div>
-    </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
       <div class = "container my-3">
         <div class="row">
             <div class = "col-md-8 col-lg-9" id="main-area">
                 {% block main_area %}
                 {% endblock %}
-                    </nav>
                     
                         </div>
                         <div class="col-md4 col-lg-3">
