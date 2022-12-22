@@ -6,16 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>개발자 김태훈입니다.</title>
 </head>
+<style>
+* {
+    text-align: center;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-top: 15px;
+}
+ 
+    .main-background{
+        width : 100%;
+        height : 100vh;
+        background-image: url(https://cdn.pixabay.com/photo/2022/12/04/10/13/snow-7634083_960_720.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        margin-top: 0px;
+
+    }
+
+  .btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    background-color: aliceblue;
+    color: #1e6b7b;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+button:active {
+	transform: scale(0.7);
+    }
+    
+</style>
 <body>
+    <div class ="main-background">
+        <div class="introduce">
+            <h1>안녕하세요. 개발공부하는 김태훈입니다.</h1>
+        </div>
+        <div class="목록">
+            <h2>이력</h2>
+            <h2>포트폴리오</h2>
+            <h3>아직 공사중입니다.</h3>
+        </div>
+        <button type="button" class="btn" onclick="location.href='/blog/';">blog</button>
+        <button type="button" class="btn" onclick="location.href='/about_me/';">about me</button>
 
-    <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/about_me/">About me</a>
-    </nav>
 
-    <h1>안녕하세요. 김태훈입니다.</h1>
-    <h2>이력</h2>
-    <h2>포트폴리오</h2>
-    <h3>아직 공사중입니다.</h3>
+    </div>
+
+
 </body>
 </html>

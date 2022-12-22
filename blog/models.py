@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
+from django.utils import timezone
+
 import os
 
 class Tag(models.Model):
@@ -55,4 +57,7 @@ class Post(models.Model):
 
     def get_content_markdown(self):
         return markdown(self.content)
+
+
+
         
